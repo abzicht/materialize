@@ -18,7 +18,8 @@
   "scripts": {
     "dev": "grunt monitor",
     "test": "grunt travis",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "minify": "minify ./bin/materialize.js > ./bin/materialize.min.js && minify ./bin/materialize.css > ./bin/materialize.min.css"
   },
   "lint-staged": {
     "js/*.js": [
@@ -26,7 +27,9 @@
       "git add"
     ]
   },
-  "dependencies": {},
+  "dependencies": {
+  "minify": "^4.1.1"
+  },
   "engine": "node >= 6",
   "devDependencies": {
     "autoprefixer": "^7.1.1",
@@ -47,7 +50,7 @@
     "grunt-postcss": "^0.8.0",
     "grunt-remove-logging": "^0.2.0",
     "grunt-rename-util": "^1.0.0",
-    "grunt-sass": "^2.0.0",
+    "grunt-sass": "^2.1.0",
     "grunt-text-replace": "^0.4.0",
     "husky": "^0.14.3",
     "jasmine": "^2.6.0",
